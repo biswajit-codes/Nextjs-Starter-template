@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggleButton from "../customui/ThemeToggleButton";
+import Mobile from "../Mobile/Mobile";
 
 const Header = () => {
 	return (
@@ -15,11 +16,13 @@ const Header = () => {
 					</h1>
 				</Link>
 
-				<nav className="flex items-center gap-4">
+				<nav className="hidden items-center gap-4 sm:flex">
 					<Link href={"/"}>Home</Link>
 
 					<ThemeToggleButton />
 				</nav>
+
+				<Mobile />
 			</div>
 		</header>
 	);
