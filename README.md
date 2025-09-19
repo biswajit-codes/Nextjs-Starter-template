@@ -1,3 +1,4 @@
+
 # Nextjs Starter Template
 
 The Last Next.js starter template you will ever need.
@@ -42,3 +43,5 @@ Want to contribute? Great!
 ## License
 
 MIT
+
+
