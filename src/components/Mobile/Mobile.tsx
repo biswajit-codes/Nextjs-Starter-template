@@ -1,89 +1,78 @@
-import { Menu, X } from "lucide-react";
+"use client";
+
+import { List } from "lucide-react";
+import Link from "next/link";
+import ThemeToggleButton from "../customui/ThemeToggleButton";
 import { Button } from "../shadcnui/button";
 import {
-	Drawer,
-	DrawerClose,
-	DrawerContent,
-	DrawerFooter,
-	DrawerHeader,
-	DrawerTitle,
-	DrawerTrigger,
-} from "../shadcnui/drawer";
-import ThemeToggleButton from "../customui/ThemeToggleButton";
-import Link from "next/link";
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetDescription,
+	SheetFooter,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "../shadcnui/sheet";
 
 const Mobile = () => {
 	return (
 		<nav className="flex sm:hidden">
-			<Drawer direction="left">
-				<DrawerTrigger asChild>
+			<Sheet>
+				<SheetTrigger asChild>
 					<Button
 						variant="ghost"
-						size="icon"
 						aria-label="Open menu">
-						<Menu />
+						<List
+							size={120}
+							color="#ffffff"
+							strokeWidth={3}
+						/>
 					</Button>
-				</DrawerTrigger>
+				</SheetTrigger>
 
-				<DrawerContent className="h-full p-0">
-					{/* Full-height flex column container */}
-
+				<SheetContent
+					side="left"
+					className="p-0">
 					<div className="flex h-full w-full max-w-sm flex-col">
-						{/* Header with Close Button */}
+						{/* Header */}
+						<SheetHeader className="px-4 py-3">
+							<SheetTitle>Mobile Menu</SheetTitle>
+							{/*  ✅ Add this */}
 
-						<DrawerHeader className="grid grid-cols-2 items-center px-4 py-3">
-							<DrawerTitle>Mobile Menu</DrawerTitle>
+							<SheetDescription></SheetDescription>
+						</SheetHeader>
 
-							<DrawerClose asChild>
-								<div className="flex justify-end">
-									<Button
-										variant="ghost"
-										size="icon"
-										aria-label="Close menu">
-										<X
-											size={25}
-											color="#ff0000"
-											strokeWidth={2.25}
-										/>
-									</Button>
-								</div>
-							</DrawerClose>
-						</DrawerHeader>
-
-						{/* Main content  */}
+						{/* Links */}
 						<div className="flex-1 space-y-4 px-4 py-2">
 							<Link
 								href="/"
-								className="block rounded-md bg-violet-400 px-4 py-2 text-lg transition-colors hover:bg-violet-500 hover:text-white focus:bg-violet-300">
+								className="block rounded-md px-4 py-2 text-lg transition-colors hover:bg-violet-500 hover:text-white focus:bg-violet-300">
 								Home
 							</Link>
 
 							<Link
-								href="/"
-								className="block rounded-md bg-violet-400 px-4 py-2 text-lg transition-colors hover:bg-violet-500 hover:text-white focus:bg-violet-300">
-								About us
+								href="/about"
+								className="block rounded-md px-4 py-2 text-lg transition-colors hover:bg-violet-500 hover:text-white focus:bg-violet-300">
+								About Us
 							</Link>
-
-							{/* Add more mobile nav links here */}
 						</div>
-
-						{/* Footer pinned to bottom */}
-						<DrawerFooter className="border-t p-4">
+						{/* Footer */}
+						<SheetFooter className="border-t p-4">
 							<div className="flex justify-between">
 								<ThemeToggleButton />
-
-								<DrawerClose asChild>
+								<SheetClose asChild>
 									<Button
 										variant="destructive"
 										className="w-20">
 										Cancel
 									</Button>
-								</DrawerClose>
+								</SheetClose>
 							</div>
-						</DrawerFooter>
+						</SheetFooter>
 					</div>
-				</DrawerContent>
-			</Drawer>
+				</SheetContent>
+			</Sheet>
 		</nav>
 	);
 };
